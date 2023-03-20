@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'statics/style/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'statics/style/addmedkit.css' %}">
+</head>
+
+<body>
+  <div class="main">
+    <nav>
+      <ul>
+        <img src="{% static 'statics/images/logo-icon.png' %}" alt="logo" class="logo">
+        <li><a href="/">home</a></li>
+        <div class="title">
+          <div class="medkit">
+            <li><a href="">Medkit</a></li>
+          </div>
+          <div class="record">
+            <li><a href="">Record</a></li>
+          </div>
+          <div class="management">
+            <li><a href="">Management</a></li>
+          </div>
+          <div class="system">
+            <li><a href="">System</a></li>
+          </div>
+
+          <div class="logout">
+            <li><a href="/">Logout</a></li>
+          </div>
+      </ul>
+    </nav>
+  </div>
+
+
+  <div class="row">
+    <div class="mx-auto col-10 col-md-8 col-lg-6">
+      <h4 class="text-center alert alert-info">Add Medicines</h4>
+      <form action="" method="POST" class="d-inline">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-success" value="ADD">
+        <a href="{% url 'displaydata' %}" target="_blank" class="btn btn-warning">DISPLAY</a>
+        <button type="submit" onclick="clearData()" class="btn btn-danger">CLEAR</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="{% static 'statics/js/clearFunc.js' %}">
+
+  </script>
+
+</body>
+
+</html>

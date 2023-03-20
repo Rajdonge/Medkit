@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <title>Medkit Record Management System</title>
+</head>
+<link rel="stylesheet" href="{% static 'statics/style/home.css' %}" />
+<link rel="stylesheet" href="{% static 'statics/style/bootstrap.css' %}" />
+
+<body>
+  <div class="main">
+    <nav>
+      <ul>
+        <img src="{% static 'statics/images/logo-icon.png' %}" alt="logo" class="logo">
+        <li><a href="/">home</a></li>
+        <div class="title">
+          <div class="medkit">
+            <li><a href="">Medkit</a></li>
+          </div>
+          <div class="record">
+            <li><a href="">Record</a></li>
+          </div>
+          <div class="management">
+            <li><a href="">Management</a></li>
+          </div>
+          <div class="system">
+            <li><a href="">System</a></li>
+          </div>
+
+        </div>
+        <div class="user">
+          <li><a href="{% url 'loginpage' %}">login</a></li>
+        </div>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="background1">
+    <img src="{% static 'statics/images/sthethoscope.avif' %}" alt="sthethoscope" class="background-image">
+  </div>
+
+  <div class="background2">
+    <img src="{% static 'statics/images/medic.avif' %}" alt="medic" class="background-image2">
+  </div>
+
+
+</body>
+
+</html>
