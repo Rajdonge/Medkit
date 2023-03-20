@@ -36,7 +36,7 @@
     <div class="create">
       <h4 class="cTitle">Register your account</h4>
       <div class="cInput" id="error">
-        <form action="/createpage" method="POST" id="form" class="form-control d-inline">
+        <form action="/createpage" method="POST" id="form">
           {% csrf_token %}
           <div class="usern">
             <input type="text" placeholder="username" id="username" name="username" class="username" required />
