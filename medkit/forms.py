@@ -11,7 +11,7 @@ class Medkit_Information(forms.ModelForm):
         widgets = {
             'medicine_name': forms.TextInput(attrs={'class': 'form-control', 'name': 'medicine_name'}),
             'expiry_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'YYYY-MM-DD', 'name': 'expiry_date'}),
-            'quantity': forms.TextInput(attrs={'class': 'form-control', 'name': 'quantity'}),
+            'quantity': forms.TextInput(attrs={'class': 'form-control', 'name': 'quantity', 'id':'quantity'}),
             'marked_price': forms.TextInput(attrs={'class': 'form-control', 'name': 'marked_price'}),
             'discount': forms.TextInput(attrs={'class': 'form-control', 'name': 'discount'}),
             'company': forms.TextInput(attrs={'class': 'form-control', 'name': 'company'}),
@@ -22,11 +22,19 @@ class Medkit_Information(forms.ModelForm):
 class Sale_Information(forms.ModelForm):
     class Meta():
         model = Information
-        fields = ['medicine_name', 'quantity', 'marked_price', 'discount']
+        fields = ['quantity']
 
         widgets = {
-            'medicine_name': forms.TextInput(attrs={'class': 'form-control', 'name': 'medicine_name'}),
             'quantity': forms.TextInput(attrs={'class': 'form-control', 'name': 'quantity'}),
-            'marked_price': forms.TextInput(attrs={'class': 'form-control', 'name': 'marked_price'}),
-            'discount': forms.TextInput(attrs={'class': 'form-control', 'name': 'discount'}),
         }
+
+class Add_Information(forms.ModelForm):
+    class Meta():
+        model = Information
+        fields = ['quantity']
+
+        widgets = {
+            'quantity': forms.TextInput(attrs={'class': 'form-control', 'name': 'quantity'}),
+        }
+    
+

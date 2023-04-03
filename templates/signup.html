@@ -1,39 +1,17 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+
 {% load static %}
-<html>
 
-<head>
-  <title>Register your account</title>
-</head>
 <link rel="stylesheet" href="{% static 'statics/style/signup.css' %}" />
-<link rel="stylesheet" href="{% static 'statics/style/bootstrap.css' %}">
 
-<body>
-  <div class="main">
-    <nav>
-      <ul>
-        <img src="{% static 'statics/images/logo-icon.png' %}" alt="logo" class="logo">
-        <li><a href="/">home</a></li>
-        <div class="title">
-          <div class="medkit">
-            <li><a href="">Medkit</a></li>
-          </div>
-          <div class="record">
-            <li><a href="">Record</a></li>
-          </div>
-          <div class="management">
-            <li><a href="">Management</a></li>
-          </div>
-          <div class="system">
-            <li><a href="">System</a></li>
-          </div>
-      </ul>
-    </nav>
-  </div>
+    
+    {% for msgs in messages %}
+    <h4>{{msgs}}</h4>
+    {% endfor %}
 
-
-  <body>
     <div class="create">
+      <img class="icon" src="{% static 'statics/images/key.png' %}" alt="">
       <h4 class="cTitle">Register your account</h4>
       <div class="cInput" id="error">
         <form action="/createpage" method="POST" id="form">
@@ -63,9 +41,4 @@
       </div>
     </div>
 
-
-    <script src="{% static 'statics/js/boostrap.js' %}"></script>
-
-  </body>
-
-</html>
+{% endblock %}

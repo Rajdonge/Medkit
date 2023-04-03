@@ -6,31 +6,6 @@ body{
     background-color: #67c3d0;
 }
 
-.main > nav > ul> .logo{
-    height: 140px;
-}
-
-.main > nav > ul {
-    height: 150px;
-    display: flex;
-    align-items: center;
-}
-
-.main > nav > ul > li {
-    list-style-type: none;
-}
-
-.main > nav > ul > li > a{
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    background-color: #485264;
-    margin-top: 20px;
-    padding: 5px;
-}
 .create {
     margin: 50px 430px;
     background-color: #485264;
@@ -57,6 +32,12 @@ body{
     color: white; 
     padding-top: 10px;
     padding-bottom: 30px;
+}
+
+.create > .icon {
+    height: 50px;
+    margin-left: 230px;
+    margin-top: 25px;
 }
 
 .fname, .lname{
@@ -124,80 +105,5 @@ body{
 .signBtn:hover{
     cursor: pointer;
     color: #67c3d0;
-}
-
-
-.main > nav > ul > .title{
-    display: flex;
-    margin-left: 220px;
-    
-}
-
-.main > nav > ul > .title > .record, .management, .system {
-    margin-left: 7px;
-}
-
-.main > nav > ul > .title > .medkit > li > a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: #485264;
-}
-.main > nav > ul > .title > .medkit > li > a:hover{
-    cursor: cell;
-}
-
-.main > nav > ul > .title > .record > li > a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: #485264;
-}
-
-.main > nav > ul > .title > .record > li > a:hover{
-    cursor: cell;
-}
-
-.main > nav > ul > .title > .management > li > a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: #485264;
-}
-
-.main > nav > ul > .title > .management > li > a:hover{
-    cursor: cell;
-}
-
-.main > nav > ul > .title > .system > li > a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;  
-    color: #485264;
-}
-
-.main > nav > ul > .title > .system > li > a:hover{
-    cursor: cell;
-}
-
-.main > nav > ul > .title > .medkit > li {
-    list-style-type: none;
-}
-.main > nav > ul > .title > .record > li {
-    list-style-type: none;
-}
-.main > nav > ul > .title > .management > li {
-    list-style-type: none;
-}
-.main > nav > ul > .title > .system > li {
-    list-style-type: none;
 }
 

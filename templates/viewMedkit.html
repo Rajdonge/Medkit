@@ -1,51 +1,47 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
+
   <title>Medicine Records</title>
   <link rel="stylesheet" href="{% static 'statics/style/bootstrap.css' %}">
   <link rel="stylesheet" href="{% static 'statics/style/viewmedkit.css' %}">
-</head>
+  <script>
 
-<body>
 
-  <div class="main">
-    <nav>
-      <ul>
-        <img src="{% static 'statics/images/logo-icon.png' %}" alt="logo" class="logo">
-        <li><a href="/">home</a></li>
-        <div class="title">
-          <div class="medkit">
-            <li><a href="">Medkit</a></li>
-          </div>
-          <div class="record">
-            <li><a href="">Record</a></li>
-          </div>
-          <div class="management">
-            <li><a href="">Management</a></li>
-          </div>
-          <div class="system">
-            <li><a href="">System</a></li>
-          </div>
+    var delMedkit = null;
+    function showDeleteDialouge(id){
+      delMedkit = id;
+      document.getElementByID("delete-dialogue").style.display="block";
+    }
 
-          <div class="logout">
-            <li><a href="/">Logout</a></li>
-          </div>
-      </ul>
-    </nav>
-  </div>
+    function hideDialouge(){
+      delMedkit = null;
+      document.getElementById("delete-dialogue").style.display="none";
+    }
+
+    function deleteMed(){
+      if(delMedkit){
+        var formId = "deleteForm" + delMedkit;
+        document.getElementById(formId).submit(); 
+      }
+
+    }
+  
+  </script>
 
 
 
-  <div class="mx-auto col-10 col-md-8 col-lg-10">
+
+  {%for m in messagebox %}
+  {{m}}
+  {% endfor %}
+
+  <div class="mx-auto col-11">
     <form method="get">
       <h5 style="color: black; margin-top: 40px;">Total Records: {{total_records}}</h5>
       <input type="text" name="servicename" placeholder="Search" style="margin-left: 765px; margin-bottom: 50px;">
-      <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+      <input class="btn btn-success" type="submit" value="Search">
     </form>
     {% csrf_token %}
 
@@ -75,18 +71,35 @@
           <td>{{m.company}}</td>
           <td>{{m.dealer}}</td>
           <td>
-            <a href="{% url 'updatedata' m.id %}" class="btn btn-success">EDIT</a>
+            {% if request.user.is_staff %}
+            <a href="{% url 'updatedata' m.id %}" class="btn btn-warning" id="deleteForm">EDIT</a>
             <form action="{% url 'deletedata' m.id%}" method="POST" class="d-inline">
               {% csrf_token %}
-              <input type="submit" value="DELETE" class="btn btn-danger">
+
+              
+              <input type="submit" value="DELETE" class="btn btn-danger" id="delete">
+              {% endif %}
             </form>
-            <form action="{% url 'salepage' %}" method="POST" class="d-inline">
+
+            <form method="POST" class="d-inline">
               {% csrf_token %}
-              <button class="btn btn-warning">Sale</button>
+              <a href="{% url 'adddata' m.id %}" class="btn btn-success">ADD</a>
+            </form>
+
+            <form method="POST" class="d-inline">
+              {% csrf_token %}
+              <a href="{% url 'saledata' m.id %}" class="btn btn-warning">SALE</a>
             </form>
           </td>
         </tr>
         {% endfor %}
+
+        <div id="delete-dialogue" style="display: none;">
+          <h2>Delete Medicines</h2>
+          <p>Are you sure want to delete?</p>
+          <button type="submit" onclick="delMedkit()">Yes</button>
+          <button type="submit" onclick="hideDialouge()">No</button>
+        </div>
 
       </tbody>
     </table>
@@ -98,4 +111,6 @@
 
   </div>
 
-</html>
+  
+
+{% endblock %}

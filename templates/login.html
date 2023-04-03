@@ -1,45 +1,27 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
-<html>
 
-<head>
-  <title>Login Page</title>
-</head>
 <link rel="stylesheet" href="{% static 'statics/style/login.css' %}" />
 
-<body>
-  <div class="main">
-    <nav>
-      <ul>
-        <img src="{% static 'statics/images/logo-icon.png' %}" alt="logo" class="logo">
-        <li><a href="/">home</a></li>
-        <div class="title">
-          <div class="medkit">
-            <li><a href="">Medkit</a></li>
-          </div>
-          <div class="record">
-            <li><a href="">Record</a></li>
-          </div>
-          <div class="management">
-            <li><a href="">Management</a></li>
-          </div>
-          <div class="system">
-            <li><a href="">System</a></li>
-          </div>
-      </ul>
-    </nav>
-  </div>
+    
+
+  {% for ms in messages %}
+  <h4 style=" text-align: center; font-family: sans-serif;">{{ms}}</h4>
+
+  {% endfor %}
 
   <div class="login">
+    <img class="icon" src="{% static 'statics/images/key.png' %}" alt="icon">
     <h4 class="logTitle">Login your account</h4>
     <div class="logInput">
-      <form action="{% url 'addmedkits' %}" method="POST">
+      <form action="{% url 'loginpage' %}" method="POST">
         {% csrf_token %}
         <div class="user">
           <input type="text" placeholder="Username" name="username" id="username" class="username" required />
         </div>
         <div class="pass">
-          <input type="password" placeholder="Password" name="pass1" id="pass1" class="pass1" required />
+          <input type="password" placeholder="Password" name="password" id="pass1" class="pass1" required />
         </div>
         <div class="createBtn">
           <a href="createpage" class="create">Create your account</a>
@@ -51,6 +33,4 @@
     </div>
   </div>
 
-</body>
-
-</html>
+{% endblock %}

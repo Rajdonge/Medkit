@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="{% static 'statics/style/sale.css' %}">
 <link rel="stylesheet" href="{% static 'statics/style/bootstrap.css' %}">
 
-        
     <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto">
@@ -18,7 +17,8 @@
                 {% endfor %}
         
                 {{form.as_p}}
-                <button type="submit" class="btn btn-success">SELL</button>
+                <!-- <a href="{% url 'displaydata' %}" class="btn btn-success">SALE</a> -->
+                <button type="submit" class="btn btn-success">ADD</button>
                 <a href="{% url 'displaydata' %}" class="btn btn-warning">BACK</a>
             </form>
           </div>

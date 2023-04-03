@@ -1,43 +1,13 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% load static %}
+
+    <title>Update Medkit Details</title>
     <link rel="stylesheet" href="{% static 'statics/style/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'statics/style/update.css' %}">
-</head>
 
-<body>
 
-    <div class="main">
-        <nav>
-            <ul>
-                <img src="{% static 'statics/images/logo-icon.png' %}" alt="logo" class="logo">
-                <li><a href="/">home</a></li>
-                <div class="title">
-                    <div class="medkit">
-                        <li><a href="">Medkit</a></li>
-                    </div>
-                    <div class="record">
-                        <li><a href="">Record</a></li>
-                    </div>
-                    <div class="management">
-                        <li><a href="">Management</a></li>
-                    </div>
-                    <div class="system">
-                        <li><a href="">System</a></li>
-                    </div>
-
-                    <div class="logout">
-                        <li><a href="/">Logout</a></li>
-                    </div>
-            </ul>
-        </nav>
-    </div>
 
     <div class="row">
     </div>
@@ -52,6 +22,5 @@
     </div>
     </col-sm-8>
     </div>
-</body>
 
-</html>
+    {% endblock %}

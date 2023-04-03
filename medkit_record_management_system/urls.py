@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from medkit import views
+app_name = 'medkit'
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,6 +26,8 @@ urlpatterns = [
     path("addmedkits/", views.addMedkit, name="addmedkits"),
     path("displaydata/", views.display_data, name="displaydata"),
     path("<int:id>/", views.update_data, name="updatedata"),
+    path("saledata/<int:id>/", views.salepage, name="saledata"),
+    path("adddata/<int:id>/", views.addpage, name="adddata"),
     path("delete/<int:id>/", views.delete_data, name="deletedata"),
-    path("salepage", views.sale, name="salepage"),
+    path("logout/", views.logout_view, name="logout"),
 ]
