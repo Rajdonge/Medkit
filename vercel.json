@@ -3,54 +3,15 @@
     "builds": [
       {
         "src": "manage.py",
-        "use": "@vercel/python"
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "20mb"
+        }
       }
     ],
     "routes": [
-      {
-        "src": "/static/(.*)",
-        "dest": "your_project/static/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "manage.py"
-      }
-    ],
-    "env": {
-      "PYTHONUNBUFFERED": "1",
-      "DJANGO_SETTINGS_MODULE": "medkit_record_management_system.settings"
-    },
-    "functions": {
-      "api": {
-        "memory": 1024,
-        "maxDuration": 30,
-        "runtime": "@vercel/python",
-        "includeFiles": [
-          "*.py",
-          "*.html",
-          "*.js",
-          "*.css",
-          "*.png",
-          "*.jpg",
-          "*.jpeg",
-          "*.gif",
-          "*.svg",
-          "*.woff2",
-          "*.ttf",
-          "*.otf",
-          "*.woff",
-          "*.eot"
-        ],
-        "excludeFiles": [
-          "node_modules/**/*",
-          ".git/**/*"
-        ],
-        "environment": {
-          "PYTHONUNBUFFERED": "1",
-          "DJANGO_SETTINGS_MODULE": "medkit_record_management_system.settings"
-        },
-        "entrypoint": "api.handler"
-      }
-    }
+      { "handle": "filesystem" },
+      { "src": "/(.*)", "dest": "/manage.py" }
+    ]
   }
   
