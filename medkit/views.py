@@ -33,7 +33,7 @@ def create(request):
 
 
             messages.success(
-                request, "Your account has been successfully created.")
+                request, "Staff is successfully registered!")
     except:
         messages.error(request, "Username is already taken!")
         return redirect('createpage')

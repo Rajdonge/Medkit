@@ -16,9 +16,18 @@ Hi! {{request.user.first_name}}, {{msg}}
 <div class="background">
   {% if request.user.is_authenticated %}
   <div class="userInterface">
+    {% if request.user.is_staff %}
+    <a href="{% url 'createpage' %}" class="addStaff" style=" background-color: blue;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;">Add Staff</a>
+    {% endif %}
+
   <a href="{% url 'addmedkits' %}" class="addMed">Add Medicines</a>
   <a href="{% url 'displaydata' %}" class="viewMed">View Medicines</a>
 </div>
+
   {% else %}
   <div class="para">
       <p class="p">Medkit Record Management System is a Web Application to record the <br>

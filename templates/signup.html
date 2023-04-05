@@ -12,7 +12,7 @@
 
     <div class="create">
       <img class="icon" src="{% static 'statics/images/key.png' %}" alt="">
-      <h4 class="cTitle">Register your account</h4>
+      <h4 class="cTitle">Staff Registration Form</h4>
       <div class="cInput" id="error">
         <form action="/createpage" method="POST" id="form">
           {% csrf_token %}
@@ -30,9 +30,9 @@
           <div class="part2">
             <input type="password" name="pass2" id="pass2" placeholder="Confirm password" required />
           </div>
-          <div class="alBtn">
+          <!-- <div class="alBtn">
             <a href="loginpage" class="alreadyBtn">Already have an account?</a>
-          </div>
+          </div> -->
           <div class="signup">
             <button type="submit" class="signBtn">Sign Up</button>
           </div>
