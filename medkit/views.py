@@ -112,10 +112,12 @@ def update_data(request, id):
 # Funtion to delete data
 @login_required
 def delete_data(request, id):
+    deletquery = Information.objects.get(pk=id)
     if request.method == 'POST':
-        de = Information.objects.get(pk=id)
-        de.delete()
-        return HttpResponseRedirect('/displaydata')
+        deletquery.delete()
+        messages.info(request, "Successfully deleted!")
+        return redirect('/displaydata')
+    return render(request, "deleteitems.html")
 
 
 # Function to sale medkit

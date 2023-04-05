@@ -28,6 +28,6 @@ urlpatterns = [
     path("<int:id>/", views.update_data, name="updatedata"),
     path("saledata/<int:id>/", views.salepage, name="saledata"),
     path("adddata/<int:id>/", views.addpage, name="adddata"),
-    path("delete/<int:id>/", views.delete_data, name="deletedata"),
+    path("deletedata/<int:id>/", views.delete_data, name="deletedata"),
     path("logout/", views.logout_view, name="logout"),
 ]

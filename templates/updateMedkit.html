@@ -13,6 +13,10 @@
     </div>
     <div class="mx-auto col-10 col-md-8 col-lg-6" offset-2>
         <h4 class="alert alert-info">Update Medkit Information</h4>
+        {% for m in messages %}
+        <h4>{{m}}</h4>
+        {% endfor %}
+
         <form action="" method="POST">
             {% csrf_token %}
             {{form.as_p}}
