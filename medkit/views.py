@@ -1,11 +1,13 @@
-from django.http import JsonResponse
-from django.shortcuts import redirect, render, HttpResponseRedirect, get_object_or_404, HttpResponse
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Information
 from .forms import Medkit_Information, Sale_Information, Add_Information
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
+from datetime import date, timedelta
+
+
 
 
 
@@ -52,6 +54,7 @@ def signin(request):
 
             if user is not None:
                 login(request, user)
+                
                 messages.success(request, "welcome to Medkit Record management System!")
                 return redirect("/")
             else:
@@ -72,11 +75,22 @@ def addMedkit(request):
         if addM.is_valid():
             messages.success(request, "Medkit was successfully added.")
             addM.save()
-            # addM = Medkit_Information()
+            addM = Medkit_Information()
     else:
         addM = Medkit_Information()
 
     return render(request, "addMedkitForm.html", {'form': addM})
+
+
+#Function to show expired medkits
+@login_required
+def expiring_medkits(request):
+    today = date.today()
+    days_until_expiration = 30
+
+    expiry_date_range = (today + timedelta(days=1), today + timedelta(days=days_until_expiration))
+    expiring_objects = Information.objects.filter(expiry_date=expiry_date_range)
+    return render(request, 'expiring.html', {'expiring':expiring_objects})
 
 
 # Function to view
@@ -157,5 +171,7 @@ def addpage(request, id):
 def logout_view(request):
     logout(request)
     return redirect("/")
+
+
 
 

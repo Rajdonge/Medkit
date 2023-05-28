@@ -22,9 +22,9 @@ Hi! {{request.user.first_name}}, {{msg}}
     color: white;
     text-decoration: none;
     border-radius: 5px;">Add Staff</a>
-    {% endif %}
 
-  <a href="{% url 'addmedkits' %}" class="addMed">Add Medicines</a>
+<a href="{% url 'addmedkits' %}" class="addMed">Add Medicines</a>
+  {% endif %}
   <a href="{% url 'displaydata' %}" class="viewMed">View Medicines</a>
 </div>
 

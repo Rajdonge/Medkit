@@ -7,7 +7,7 @@
 
     
     {% for msgs in messages %}
-    <h4>{{msgs}}</h4>
+    <h2 style="text-align: center; color: green;">{{msgs}}</h2>
     {% endfor %}
 
     <div class="create">
@@ -22,7 +22,7 @@
           <input type="text" placeholder="First Name" id="fname" name="fname" class="fname" required />
           <input type="text" placeholder="Last Name" id="lname" name="lname" class="lname" required />
           <div class="emailPart">
-            <input type="email" placeholder="Email or username" id="email" name="email" class="email" required />
+            <input type="email" placeholder="Email" id="email" name="email" class="email" required />
           </div>
           <div class="part1">
             <input type="password" placeholder="Create password" id="pass1" name="pass1" required />

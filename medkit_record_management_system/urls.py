@@ -30,4 +30,5 @@ urlpatterns = [
     path("adddata/<int:id>/", views.addpage, name="adddata"),
     path("deletedata/<int:id>/", views.delete_data, name="deletedata"),
     path("logout/", views.logout_view, name="logout"),
+    path("expirypage/", views.expiring_medkits, name="expirypage"),
 ]
